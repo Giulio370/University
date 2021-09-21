@@ -1,0 +1,97 @@
+#+title: Introduction to Geometry
+#+options: toc:nil
+
+*Two Linear Equations in the two unknowns $x,y$*\\
+\begin{equation}
+	\begin{cases}
+		2x+3y=4\\
+		5x+7y=6\\
+	\end{cases}
+\end{equation}
+Both of them have to be true\\
+***** Substitution
+$2x+3y=4$ for $x$ \\
+$$
+2x+3y=4 \Rightarrow x+\frac{3}{2}y=2 \Rightarrow x=2-\frac{3}{2}y\\
+\\
+5x+7y=6 \Rightarrow 5(2-\frac{3}{2}y)+7y=6 \Rightarrow 10-\frac{15}{2}y+7y=6 \Rightarrow\\
+\Rightarrow 10-\frac{15}{2}y+\frac{14}{2}y=6 \Rightarrow -\frac{15+14}{2}y=6-10 \Rightarrow -\frac{29}{2}y=-4 \Rightarrow\\
+\Rightarrow y=-4(-\frac{2}{29}) \Rightarrow \\
+$$
+
+* Geometry
+
+$ax=b$ \\
+If there is an x it would be a Real Number $\mathbb{R}$ representable graphically with the number line\\
+- If $a=0,b\neq0$ there are no solutions
+- If $a=0,b=0$ all xs are solutions
+- If $a\neq0$ there is one solution
+
+** The real plane $\mathbb{R}^2$
+$\mathbb{R}^2$ is a set of *ordered* pairs $(s,t)$ where $s, t \in \mathbb{R}$ \\
+$(s,t)$ are points on the plane\\
+The solutions to $ax+by=c$ in $x,y$, which are $(x,y)$ ordered pairs, form a line in the $\mathbb{R}$ plane if $a\neq0 \lor b\neq0$ \\
+#+begin_src gnuplot :exports results :file graphs/01.01.svg
+	reset
+	set samples 50
+	set xzeroaxis
+	set yzeroaxis
+	
+	plot [-5:5] x
+#+end_src
+The $\mathbb{R}^2$ plane is useful to abstract problems from different fields in order to solve them generically
+
+** Vectors
+let $A,B \in \mathbb{R}^2$ ($A,B$ are points/pairs)\\
+The applied vector $\vec{AB}$ is the segment from $A$ to $B$ with a direction\\
+If $A=(0,0)=O$ (origin) then the vector $\vec{OB}$ is simply written as $\vec{B}$ and called vector
+
+*** Length
+let $A=(x_A, y_A),B=(x_B, y_B),\vec{AB}$ \\
+- If $y_A = y_B$ then $||\vec{AB}|| = |x_B - x_A|$
+- If $x_A = x_B$ then $||\vec{AB}|| = |y_B - y_A|$
+- Otherwise, $||\vec{AB}|| = \sqrt{(x_B-x_A)^2+(y_B-y_A)^2}$
+
+** Operations in $\mathbb{R}^2$
+***** Multiplication by a scalar
+let $v=(x,y)$ be a vector and $t\in\mathbb{R}$ a scalar\\
+then $v \cdot t = (xt, yt)$ \\
+*Example*\\
+let $t,x,y > 0, A=(x,y), B(tx, ty)$ \\
+\begin{equation}
+||\vec{A}|| = \sqrt{x^2+y^2}\\
+||\vec{B}|| = \sqrt{t^2 x^2 + t^2 y^2} = \sqrt{t^2(x^2+y^2)} = |t| \sqrt{x^2+y^2}\\
+\end{equation}
+
+#+begin_src gnuplot :var data=vector_multiplication :exports results :file graphs/01.02.svg
+	plot data with vectors
+#+end_src
+#+tblname: vector_multiplication
+|  x |  y | xdelta | ydelta |
+|----+----+--------+--------|
+|  0 |  0 |      2 |      2 |
+|  2 |  2 |      0 |     -2 |
+|  0 |  0 |     10 |     10 |
+| 10 | 10 |      0 |    -10 |
+
+The lengths of the vectors are proportional\\
+Multiplication by negative scalars leads to a switch in direction\\
+Multiplication $f: \mathbb{R}^2 \rightarrow \mathbb{R} \rightarrow \mathbb{R}^2$ (this syntax might be wrong)\\
+\\
+let $(x,y) \neq (0,0)$, The expression $t(x,y) \forall t \in \mathbb{R}$ describes a line that goes through $O$ and $(x,y)$ \\
+\begin{equation}
+	\text{If }
+	\begin{cases}
+		x = ta\\
+		y = tb\\
+	\end{cases}
+	\text{ with } a,b \neq 0\\
+	\text{then } bx-ay = bta-atb = 0
+\end{equation}
+$bx-ay = 0$ describes a line that goes through $O$ \\
+
+***** Sum of vectors
+let $(x_1,x_2),(y_1,y_2)\in\mathbb{R}$ then their sum is defined as the sum of their components\\
+$$
+(x_1,x_2)+(y_1,y_2) = (x_1+y_1,x_2+y_2)
+$$

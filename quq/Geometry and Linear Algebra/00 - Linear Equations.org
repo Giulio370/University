@@ -1,0 +1,44 @@
+#+title: Linear Equations
+#+options: toc:nil
+* Linear Equations
+\(2x=3\) is a linear equation
+
+- *Existance of a solution*\\
+	Are there numbers that, substituted to
+  \(x\), turn the equation into an equality?\\
+	ex. for \(x = 1 \Rightarrow 2\cdot1\neq3\)\\
+	for \(x = \frac{3}{2} \Rightarrow 2\cdot\frac{3}{2}=3\) \(\frac{3}{2}\) is
+  the solution
+
+- *Uniqueness*\\
+	Is this the only solution? What are all the solutions of the equation?
+
+*Linear*\\
+the variables/unknowns will only occur in the first power
+
+* Solving
+\(2x=3\) solve for \(x\) \[
+2x=3 \Rightarrow \frac{2x}{2}=\frac{3}{2} \Rightarrow x=\frac{3}{2}
+\] The solution exists and is unique
+
+** Implicit linear equation
+Suppose \(a,b\) are numbers\\
+Solve \(ax=b\) for \(x\)
+
+\(ax=b \Rightarrow x=\frac{b}{a} \Rightarrow x=a^{-1}b\)
+- If \(a\neq0\) then there is one unique solution
+- If \(a=0 \land b\neq0\) then there's no solution
+- If \(a=0 \land b=0\) then any \(x\) is a solution
+
+** Explicit linear equation
+Suppose \(a,b,c\) are numbers\\
+Solve \(ax+by=c\) for \(x,y\)
+
+- If \(a=0 \land b=0\) then we have \(0=c\)
+	- If \(c\neq0\) then we have no solution
+	- If \(c=0\) then any \(x,y\) are solutions
+- If \(a\neq0 \lor b\neq0\) then we have at least one (infinite) solution
+	$$
+	ax+by=c \Rightarrow ax=c-by \Rightarrow x=\frac{c-by}{a}\\
+	ax+by=c \Rightarrow by=c-ax \Rightarrow y=\frac{c-ax}{b}\\
+	$$

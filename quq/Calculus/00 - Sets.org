@@ -1,0 +1,149 @@
+#+title: Sets
+#+OPTIONS: toc:nil \n:t
+* Teacher
+[[mailto:andrea.pugliese@unitn.it][Andrea Pugliese]]
+
+*** Assistant
+[[mailto:sara.sottile@unitn.it][Sara Sottile]]
+
+Mid-term exam??\\
+Final exam - beginning of January: Multiple choices + 2 open question
+
+** Textbook
+Mathematical Analysis I (Canuto, Claudio, Tabacco, Anita)
+
+* Sets
+$A=\{a_1, a_2, ..., a_{10}\}$
+Capital letter to identify them
+
+Symbol =belongs to=\\
+$a_2 \in A$ is true if $a_2$ is in the $A$ set
+
+Venn diagram is a set representation
+
+** Cardinality
+$|A|$ is the number of elements in a set\\
+
+** Intersections
+$A \cap B$ The set with only the elements that belong to both sets
+
+** Union
+$A \cup B$ The set with elements that belong to either set
+
+*Examples*
+$$
+A=\{\text{all natural numbers multiple of 3}\}\\ 
+A=\{0, 3, 6, 9, ...\}\\ 
+B=\{\text{all even numbers}\}\\ 
+B=\{0, 2, 4, 6, ...\}\\ 
+\\ 
+A \cap B = \{0, 6, 12, ...\}\\ 
+A \cup B = \{0, 2, 3, 4, ...\}\\ 
+$$
+
+** Subsets
+$B \subset A$
+if $B$ is a subset of $A$ then all elements in $B$ also belong to $A$
+
+$A \subset A$ is true
+
+if $B \subset A$ then $x \in B \Rightarrow x \in A$
+
+$\emptyset$ is the empty set\\
+$\emptyset \subset A$ (Every set has at least 2 subsets: itself and $\emptyset$)
+
+* Sets of Numbers
+** Naturals
+$\mathbb{N} = {0, 1, 2, 3, ...}$
+Positive integers (and 0) with $a,b \in \mathbb{N}$
+The  additions ($a+b$) and multiplications ($a \cdot b$) (subtraction cannot be done everytime)
+
+_*Neutrals*_\\
+0 for Additions ($a+0=a$)
+1 for Multiplications ($a \cdot =a$)
+
+$\mathbb{N}_+ = \{1, 2, 3, 4, ...\}$
+
+** Integers
+$\mathbb{Z} = \{0, \pm1, \pm2, \pm3, ...\}$
+with $a,b \in \mathbb{Z}$
+The following operations are possible
+- additions ($a+b$),
+- multiplications ($a \cdot b$)
+- and subtractions ($a-b$/$a+(-b)$)
+
+$\forall a \in \mathbb{Z} \exists b \in \mathbb{Z} \text{ such that } a+b=0 \land b=-a$
+
+** Rationals
+$\mathbb{Q} = \{\frac{k}{n}, n \in \mathbb{N}_+, k \in \mathbb{Z}, n \text{ & } k \text{ have no common divisors } \}$
+
+$\forall a \in \mathbb{Q}$ with a $\neq 0 \exists b \in Q \text{ such that } a \cdot b = 1 \land b=\frac{1}{a} \land a=\frac{1}{b}$
+
+The Line of Numbers is a geometric representation
+There is no $p \in \mathbb{Q} \text{ such that } p^2 = 2$ which means that $\sqrt{2} \notin \mathbb{Q}$
+
+However since the diagonal of a square that has $l = 1$ is
+$\sqrt{2}$ then $\sqrt{2}$ must exist, otherwise we wouldn't be able
+to represent numbers in a continuous line
+
+*** Proof (by contradiction)
+To prove that proposition $p$ implies proposition $q$ we prove that proposition $\lnot p$ implies both $q$ and $\lnot q$
+This is a contradiction, since $q$ and $\lnot q$ cannot both be true simultaneously (they're mutually exclusive)
+
+To prove that $p \notin \mathbb{Q} \text{ such that } p^2 = 2$ we prove that $p \in \mathbb{Q}: p^2 \neq 2$ is not true\\
+Suppose $p \in \mathbb{Q}$, so $p = \frac{m}{n}$ where $m, n$ have no common divisor
+$$
+\frac{m^2}{n^2} = 2 \Rightarrow m^2 = 2n^2\\
+\Downarrow\\
+m^2 \text{ is even } \Rightarrow m \text{ is even } \Rightarrow m=2k\\
+(2k)^2 = 2n^2 \Rightarrow 4k^2 = 2n^2 \Rightarrow 2k^2 = n^2\\
+\Downarrow\\
+n^2 \text{ is even } \Rightarrow n \text{ is even }
+$$
+If both $m$ and $n$ are even then they have at least one common divisor
+This means that, $p \in \mathbb{Q} = \frac{m}{n}$ and $p \notin \mathbb{Q}$ because $m, n$ have at least one common divisor
+Since $p \in \mathbb{Q}$ and $p \notin \mathbb{Q}$ cannot be both true, the assumption that $p \in \mathbb{Q}$ must be false
+
+Real numbers are the rest of the numbers in the line.
+Since there are infinitely many rational numbers, we can approximate any real number
+with at least one rational.\\
+Real numbers can be represented with infinite
+decimal digits/decimal development\\
+\(\frac{1}{3} = 0.33333...\) Periodic\\
+\(\sqrt{2} = 1.41...\) Aperiodic
+
+** Reals $\mathbb{R}$
+Were defined very recently (around 1870 - 80) ($\sqrt{2} \in \mathbb{R}$)
+
+*** Properties
+$a+b$, $a \cdot b$, $-a$, $\frac{1}{a} \text{ if } a \neq 0$
+
+All numbers are ordered, if $a \neq b$ then $a < b \lor a > b$
+
+* Operation Properties
+
+- $a \cdot (b+c) = a \cdot b + a \cdot c$
+- if $c > 0 \land a < b \Rightarrow a \cdot c < b \cdot c$
+
+let \(A \subset \mathbb{R}\)\\
+\(max A = b \text{ such that } b \in A \land b >= a \forall a \in A\)\\
+if $A=\{x\in \mathbb{R}, x <= 1\}$ then $max(A) = 1$.\\
+Not all sets have a maximum (some sets are infinite), for example $B=\{x \in \mathbb{R}, x < 1\}$ has
+infinite numbers\\
+
+$B$ has a Supremum (the supremum is the lowest of all majorants)
+\[
+sup A = b \text{ if } b >= a \forall a \in A\\ 
+\text{if } c >= a \forall a \in A \Rightarrow sup(A) <= c
+\]
+if $\exists max(A) \Rightarrow max(A) = sup(A)$
+
+*** Axiom of $\mathbb{R}$
+every set $A$ that is (upper) bounded (meaning that
+$\exists M \in \mathbb{R} \text{ such that } M >= a \forall a \in A$) has a supremum
+
+*** Theorem
+\[
+\forall n \in \mathbb{N}, \forall a > 0, a \in \mathbb{R} \ 
+\exists \text{ unique } x \in \mathbb{R}, x > 0 \text{ such that } x^n=a
+\]

@@ -1,0 +1,232 @@
+#+title: Operations, Inequalities and Functions
+#+options: toc:nil
+* Supremum
+
+$b=sup(A) \quad A \subset R$ if\\
+$$
+(i) b \geq a \forall a \in A\\
+(ii) \text{if } c \geq a \forall a \in A \text{ then } c \geq b\\
+(ii)' \text{if } c < b \Rightarrow \exists a \in A \text{ such that } a > c
+$$
+
+*Example*\\
+let $A = \{1 - \frac{1}{n}, n \in \mathbb{N}_+ \}$ \\
+$A$ approaches 1 but never reaches it, so $max(A)$ doesn't exist (there is no number in the set that is greater than all the others because it's infinite)\\
+but $sup(A) = 1$ (because 1 is the lowest number in $\mathbb{R}$ that is greater than all the numbers in the set)
+
+let $A=\{x\in\mathbb{R}: x^2 < 2\}$ \\
+$sup(A)^2 = 2 \Rightarrow sup(A) = \sqrt{2}$, no other number would satisfy both $sup(A)$ constraints\\
+Every set that is upper bounded has a supremum
+
+* Intervals
+- Closed interval $[a, b] = \{x \in \mathbb{R}: a \leq x \leq b\}$ \\
+- Open interval $(a, b) = \{x \in \mathbb{R}: a < x < b\}$ \\
+- Half-open interval $(a, b]$ or $[a, b)$ \\
+- Half-infinite interval $(-\infty, b)$ or $(a, +\infty)$ or $(-\infty, b]$ ect..\\
+
+* Absolute Value
+\begin{equation}
+	\text{with }x \in \mathbb{R} \Rightarrow\\
+	| x | =
+	\begin{cases}
+		x \quad \text{if } x \geq 0\\
+		-x \quad \text{if } x <0
+	\end{cases}\\
+	| x | \geq 0
+\end{equation}
+
+* Inequalities
+For which $x$ does $|x-3| > |2x-1|$ hold?
+
+\begin{equation}
+	| x-3 | =
+	\begin{cases}
+		x-3 \quad \text{if } x-3 \geq 0 \Rightarrow x \geq 3\\
+		3-x \quad \text{if } x-3 < 0 \Rightarrow x < 3\\
+	\end{cases}
+\end{equation}
+
+\begin{equation}
+	| 2x-1 | =
+	\begin{cases}
+		2x-1 \quad \text{if } 2x-1 \geq 0 \Rightarrow x \geq \frac{1}{2}\\
+		1-2x \quad \text{if } 2x-1 < 0 \Rightarrow x < \frac{1}{2}\\
+	\end{cases}
+\end{equation}
+
+\begin{equation}
+	|x-3| > |2x-1|\\
+	\Downarrow\\
+	\begin{cases}
+		x-3 > 2x-1 \quad \text{if } x \geq 3\\
+		3-x > 2x-1 \quad \text{if } \frac{1}{2} \leq x < 3\\
+		3-x > 1-2x \quad \text{if } x \leq \frac{1}{2}\\
+	\end{cases} \Rightarrow
+	\begin{cases}
+		x-2x > 3-1 \quad \text{if } x \geq 3\\
+		-x-2x > -1-3 \quad \text{if } \frac{1}{2} \leq x < 3\\
+		2x-x > 1-3 \quad \text{if } x \leq \frac{1}{2}\\
+	\end{cases}\\
+	\Downarrow\\
+	\begin{cases}
+		-x > 2 \quad \text{if } x \geq 3\\
+		-3x > -4 \quad \text{if } \frac{1}{2} \leq x < 3\\
+		x > -2 \quad \text{if } x \leq \frac{1}{2}\\
+	\end{cases} \Rightarrow
+	\begin{cases}
+		x < -2 \quad \text{if } x \geq 3\\
+		x < \frac{-4}{-3} \quad \text{if } \frac{1}{2} \leq x < 3\\
+		x > -2 \quad \text{if } x \leq \frac{1}{2}\\
+	\end{cases} \Rightarrow
+\end{equation}
+
+* Functions
+$f: A \rightarrow B$ \\
+The function $f$ maps each point in $A$ to _*only one*_ point in $B$ \\
+
+ex:\\
+$$
+A=\{\text{Set of regular Unitn students}\}\\
+B=\{\text{Set of integers between }\ 1 \text{ and } 10^6\}\\
+f \text{ maps the student to their ID}
+$$
+$$
+A=\mathbb{R}\\
+B=\mathbb{R}\\
+f: x \rightarrow x^2\\
+f(x)=x^2 \quad \text{This is an imprecise syntax}
+$$
+
+*** Definition
+$$
+A=\text{Domain}\\
+B=\text{Co-domain}\\
+f: \text{ Law}
+$$
+
+Functions
+$$
+A=\mathbb{R}\\
+B=\mathbb{R}\\
+f: x \rightarrow x^2
+$$
+and
+$$
+A=\mathbb{R}\\
+B=\mathbb{R}_+\\
+f: x \rightarrow x^2
+$$
+are different, but the _range_ of the functions are the same\\
+
+*** Range
+The range of a function is the subset of the Co-domain elements that have at least one point(reverse-mapping??) in the domain
+
+*** Cartesian Product
+$A \times B = \{(x, y): x \in A, y \in B\}$ \\
+$\mathbb{R}^2 = \mathbb{R} \times \mathbb{R} = \{(x, y): x,y \in \mathbb{R}\}$ \\
+$|A \times B| = |A| \cdot |B|$
+
+*** Graph
+The graph of a function is a cartesian graph that has the Domain on the x-axis and the Co-domain on the y-axis\\
+$\{ (x,y)\in A \times B: y=f(x)\}$
+
+*** Function examples
+All of these are $f: \mathbb{R}_+ \rightarrow \mathbb{R}_+$ \\
+$f: x \rightarrow x^2$ \\
+$f: x \rightarrow |x|$ \\
+\begin{equation}
+	sign(x) =
+	\begin{cases}
+		1 \quad x > 0\\
+		0 \quad x = 0\\
+		-1 \quad x < 0\\
+	\end{cases}
+\end{equation}
+
+*** Piecewise Function definition
+*Piecewise Constant function*\\
+\begin{equation}
+	f(x) =
+	\begin{cases}
+		0.23 \quad x \leq 15,000\\
+		0.27 \quad 15,000 < x \leq 28,000\\
+	\end{cases}
+\end{equation}
+
+*Piecewise Linear function*\\
+\begin{equation}
+	f(x) =
+	\begin{cases}
+		0.23x \quad x \leq 15,000\\
+		0.23 \cdot 15,000 + 0.27 \cdot (x-15,000) \quad 15,000 < x \leq 28,000\\
+	\end{cases}
+\end{equation}
+
+Relation $R$ is a subset of $A \times B$ \\
+$a$ is in relation to $b$ if $(a,b) \in R$ \\
+A function $R$ is a relation such that $\forall a \in A \exists \text{unique } b \in B: (a,b) \in R$
+
+* Sequence
+$$
+f: \mathbb{N} \rightarrow \mathbb{R} \quad \{a_0, a_1, a_2, ...\}\\
+f: \mathbb{N}_+ \rightarrow \mathbb{R} \quad \{a_1, a_2, a_3\, ...\}\\
+$$
+$a_n=\frac{1}{n} \qquad a_n=(-1)^n$ \\
+*Examples*\\
+$a_n=\frac{1}{n} \Rightarrow \{1, \frac{1}{2}, \frac{1}{3}, ...\}$ \\
+$a_n=(-1)^n \Rightarrow \{-1, +1, -1, ...\}$
+
+** Composition of Functions
+$$
+f: A \rightarrow B, g: B \rightarrow C\\
+h: A \rightarrow C\\
+h: x \rightarrow g(f(x))\\
+h = g \circ f
+$$
+*Example*\\
+$$
+f: \mathbb{R} - \{0\} \rightarrow \mathbb{R}\\
+f: x \rightarrow \frac{1}{x}\\
+g: \mathbb{R} \rightarrow \mathbb{R} \text{ or } g: \mathbb{R} \rightarrow \mathbb{R} - \{0\}\\
+g: x \rightarrow x^2+1\\
+h: \mathbb{R} - \{0\} \rightarrow \mathbb{R}\\
+h = g \circ f\\
+h(x) = g(f(x)) \Rightarrow h(x) = g(\frac{1}{x}) \Rightarrow h(x) = (\frac{1}{x})^2+1
+$$ \\
+$g \circ f \neq f \circ g$
+
+* Graphs
+** Translations
+$f: \mathbb{R} \rightarrow \mathbb{R}$ \\
+Graph of $f(x+c)$ \\
+$$
+g: x \rightarrow x+c\\
+f(g(x))
+$$
+Translation is horizontal\\
+\\
+Graph of $f(x)+c$ \\
+$$
+g: x \rightarrow x+c\\
+g(f(x))
+$$
+Translation is vertical
+
+** Rescaling
+$$
+g: x \rightarrow cx\\
+f(g(x)) = f(cx)
+$$
+The scaling is horizontal\\
+$$
+g(f(x)) = cf(x)
+$$
+The scaling is vertical\\
+
+** Reflection
+$|f(x)|$ Reflects the negative ys on the positive side
+
+* Injectivity and Surjectivity
+$f: A \rightarrow B$ is =injective= if $a_1,a_2 \in A: f(a_1) \neq f(a_2) \Rightarrow a_1 \neq a_2$, if all elements in $B$ have at most 1 pre-image in $A$ \\
+$f$ is =surjective= if $\forall b \in B \exists a \in A \text{ such that } f(a)=b$, if all elements in $B$ have at least 1 pre-image in $A$ \\
+If $f$ is both injective and surjective then it is =bijective=
