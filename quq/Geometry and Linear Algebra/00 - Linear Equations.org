@@ -21,7 +21,7 @@ the variables/unknowns will only occur in the first power
 2x=3 \Rightarrow \frac{2x}{2}=\frac{3}{2} \Rightarrow x=\frac{3}{2}
 \] The solution exists and is unique
 
-** Implicit linear equation
+** Parametric linear equation
 Suppose \(a,b\) are numbers\\
 Solve \(ax=b\) for \(x\)
 
@@ -30,7 +30,7 @@ Solve \(ax=b\) for \(x\)
 - If \(a=0 \land b\neq0\) then there's no solution
 - If \(a=0 \land b=0\) then any \(x\) is a solution
 
-** Explicit linear equation
+** Implicit linear equation
 Suppose \(a,b,c\) are numbers\\
 Solve \(ax+by=c\) for \(x,y\)
 

@@ -1,0 +1,101 @@
+#+title: Systems of Straight Lines
+#+options: toc:nil \n:t
+
+\begin{cases}
+ax+by=c\\
+dx+ey=f\\
+\end{cases}
+The solution is the set of points where the two lines overlap
+
+\begin{cases}
+0x+0y=1\\
+2x+3y=7\\
+\end{cases}
+The first equation does not have solutions and doesn't exist
+\begin{cases}
+0x+0y=0\\
+2x+3y=7\\
+\end{cases}
+The whole plane is the solution of the first equation, therefore the solution of the system is the solution of the second euqation
+\begin{cases}
+x+y=1\\
+x+y=2\\
+\end{cases}
+#+begin_src gnuplot :exports results :file graphs/02.01.svg
+	reset
+	set samples 50
+	set xzeroaxis
+	set yzeroaxis
+	
+	plot [-5:5] 1-x, 2-x
+#+end_src
+Both are lines, but a common solution cannot be found, because they never overlap 
+
+\begin{cases}
+x+y=1\\
+2x+2y=2\\
+\end{cases}
+The two equations describe the same line, which means that they fully overlap
+
+[[https://math.stackexchange.com/questions/1201747/implicit-line-equation][Useful explanation]]
+*Find an Implicit Equation for the line*
+\begin{cases}
+x=1+3t\\
+y=2+4t\\
+\end{cases}
+$$
+(x, y) = (1+3t, 2+4t) = (1, 2) + (3t, 4t) = (1, 2) + t(3, 4)\\
+$$
+In $(1, 2) + t(3, 4)$ the vector $(3, 4)$ describes the line ($t (3, 4) \forall t \in \mathbb{R}$ describes a line that passes through $O$ and $(3, 4)$),
+while $(1, 2)$ offsets the line
+$$
+v_2 x - v_1 y = 4x-3y = 4(1+3t) - 3(2+4t) = 4+12t-6-12t = -2 \\
+4x-3y = -2
+$$
+
+*Find Parametric Equation*
+1) Find a point $(x_0, y_0)$ in the line so that $ax+by=c$ holds
+2) Now $(ax+by-c)-(ax_0+by_0-c) = 0 \Rightarrow ax+by-c-ax_0-by_0+c = 0 \Rightarrow a(x-x_0)+b(y-y_0) = 0$
+3) let $t = \frac{y - y_0}{a}$ with $a \neq 0$ (or $t = -\frac{x - x_0}{b}$ with $b \neq 0$)
+	 $a(x-x_0)+b(y-y_0) = 0 \Rightarrow a(-bt)+b(ta) = 0$
+4)
+\begin{equation}
+	\begin{cases}
+		ax-ax_0+b(y-y_0) = 0\\
+		a(x-x_0)+by-by_0 = 0\\
+	\end{cases} \Rightarrow
+	\begin{cases}
+		ax = ax_0-b(y-y_0)\\
+		by = by_0-a(x-x_0)\\
+	\end{cases} \Rightarrow
+	\begin{cases}
+		x = x_0-b\frac{y-y_0}{a}\\
+		y = y_0-a\frac{x-x_0}{b}\\
+	\end{cases} \Rightarrow
+	\begin{cases}
+		x = x_0-bt\\
+		y = y_0+at\\
+	\end{cases} \Rightarrow
+\end{equation}
+5) Then $(x, y) = (x_0-bt, y_0+at) = (-bt, at) + (x_0, y_0) = t(-b, a) + (x_0, y_0)$
+$t(-b, a) + (x_0, y_0)$ is the *Parametric Equation*
+
+*Find parallel lines by analyzing angles between two vectors*
+let $A,B$ be two vectors of length 1 $||A|| = 1, ||B|| = 1$
+$A = (\cos(\alpha), \sin(\alpha)), B = (\cos(\beta), \sin(\beta))$
+
+let $v=(v_1, v_2), w=(w_1, w_2)$, their scalar product is $v \cdot w = v_1w_1 + v_2w_2$
+=Fix products' signs=
+$\sin$ is an odd function, $\sin(-\beta) = -\sin(\beta)$, $\cos$ is an even function, $\cos(\beta) = \cos(-\beta)$
+
+$$
+A \cdot B = \cos(\alpha) \cos(\beta) + \sin(\alpha) \sin(\beta)\\
+\Downarrow\\
+A \cdot B = \cos(\alpha) \cos(-\beta) - \sin(\alpha) \sin(-\beta)\\
+\Downarrow\\
+A \cdot B = \cos(\alpha - \beta)\\
+$$
+where $\alpha - \beta$ is the angle between $A$ and $B$
+
+If $v, w \neq 0$ are arbitrary vectors, then the scalar product is $||v|| \cdot ||w|| \cdot \cos(\gamma)$ where $\gamma$ is the angle between $v$ and $w$
+$(a,b) \cdot (x,y) = ax + by$

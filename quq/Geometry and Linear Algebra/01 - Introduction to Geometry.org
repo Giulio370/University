@@ -13,18 +13,24 @@ Both of them have to be true\\
 $2x+3y=4$ for $x$ \\
 $$
 2x+3y=4 \Rightarrow x+\frac{3}{2}y=2 \Rightarrow x=2-\frac{3}{2}y\\
-\\
-5x+7y=6 \Rightarrow 5(2-\frac{3}{2}y)+7y=6 \Rightarrow 10-\frac{15}{2}y+7y=6 \Rightarrow\\
-\Rightarrow 10-\frac{15}{2}y+\frac{14}{2}y=6 \Rightarrow -\frac{15+14}{2}y=6-10 \Rightarrow -\frac{29}{2}y=-4 \Rightarrow\\
-\Rightarrow y=-4(-\frac{2}{29}) \Rightarrow \\
+$$ \\
+$5x+7y=6$ for $y$ \\
 $$
+5x+7y=6 \Rightarrow 5(2-\frac{3}{2}y)+7y=6 \Rightarrow 10-\frac{15}{2}y+7y=6 \Rightarrow\\
+\Rightarrow 10-\frac{15}{2}y+\frac{14}{2}y=6 \Rightarrow -\frac{1}{2}y=6-10 \Rightarrow -\frac{1}{2}y=-4 \Rightarrow\\
+\Rightarrow y=-4(-2) \Rightarrow y=8\\
+$$ \\
+$x=2-\frac{3}{2}y$ for $x$ \\
+$$
+x=2-\frac{3}{2}y \Rightarrow x=2-\frac{3}{2} \cdot 8 \Rightarrow x=2-3 \cdot 4 \Rightarrow x=2-12 \Rightarrow x=-10\\
+$$ \\
 
 * Geometry
 
 $ax=b$ \\
 If there is an x it would be a Real Number $\mathbb{R}$ representable graphically with the number line\\
 - If $a=0,b\neq0$ there are no solutions
-- If $a=0,b=0$ all xs are solutions
+- If $a=0,b=0$ all $x$s are solutions
 - If $a\neq0$ there is one solution
 
 ** The real plane $\mathbb{R}^2$
@@ -75,7 +81,7 @@ let $t,x,y > 0, A=(x,y), B(tx, ty)$ \\
 | 10 | 10 |      0 |    -10 |
 
 The lengths of the vectors are proportional\\
-Multiplication by negative scalars leads to a switch in direction\\
+Multiplication by negative scalars leads to a switch towards the opposite direction\\
 Multiplication $f: \mathbb{R}^2 \rightarrow \mathbb{R} \rightarrow \mathbb{R}^2$ (this syntax might be wrong)\\
 \\
 let $(x,y) \neq (0,0)$, The expression $t(x,y) \forall t \in \mathbb{R}$ describes a line that goes through $O$ and $(x,y)$ \\
@@ -95,3 +101,32 @@ let $(x_1,x_2),(y_1,y_2)\in\mathbb{R}$ then their sum is defined as the sum of t
 $$
 (x_1,x_2)+(y_1,y_2) = (x_1+y_1,x_2+y_2)
 $$
+Sum by components
+
+let $v = (v_1, v_2), w = (w_1, w_2) \in \mathbb{R}$ \\
+$v + w = (v_1 + w_1, v_2 + w_2) \in \mathbb{R}$ \\
+The sum is the diagonal of the parallelogram that uses $v$ and $w$ as sides.\\
+The applied vector can be obtained by parallel transport of $v$ along $w$ and of $w$ along $v$, creating the parallelogram
+#+begin_src gnuplot :var data=vector_sum :exports results :file graphs/01.03.svg
+	plot data with vectors
+#+end_src
+#+tblname: vector_sum
+| x | y | xdelta | ydelta |
+|---+---+--------+--------|
+| 0 | 0 |      2 |      5 |
+| 0 | 0 |      5 |      2 |
+| 2 | 5 |      5 |      2 |
+| 5 | 2 |      2 |      5 |
+| 0 | 0 |      7 |      7 |
+
+*Parallel Translation*\\
+The parallel translation of a vector $v = (v_1, v_2)$ along $w = (w_1, w_2)$ is $\overrightarrow{w, w+v}$, a vector that has its origin in $w$ and the vector is $(v_1+w_1, v_2+w_2)$
+#+begin_src gnuplot :var data=vector_parall_trans :exports results :file graphs/01.04.svg
+	plot data with vectors
+#+end_src
+#+tblname: vector_parall_trans
+| x | y | xdelta | ydelta |
+|---+---+--------+--------|
+| 0 | 0 |      5 |      2 |
+| 0 | 0 |      2 |      5 |
+| 2 | 5 |      5 |      2 |

@@ -1,0 +1,238 @@
+#+title: Trigonometric Functions, Complex Numbers
+#+OPTIONS: toc:nil \n:t
+
+=Add circle with r=1=
+#+begin_src gnuplot :exports results :file graphs/05.01.svg
+	reset
+	set samples 70
+	set xzeroaxis
+	set yzeroaxis
+	
+	plot [-5:5] 1-x, 2-x
+#+end_src
+$$
+x = \cos(l)\\
+y = \sin(l)\\
+$$
+Coordinates of the point on the circumference
+
+** Radiants
+| Degrees     | Radiants |
+|-------------+----------|
+| $360^\circ$ | $2\pi$   |
+| $180^\circ$ | $\pi$    |
+
+$\sin$ and $\cos$ are periodic, meaning that
+$\cos(x+2\pi) = \cos(x)$, $\sin(x+2\pi) = \sin(x)$
+the period for both is $2\pi$
+
+A function $f: \mathbb{R} \rightarrow \mathbb{R}$ is periodic if $\exists T > 0: f(t+T) = f(t) \forall t \in dom(f)$
+Its period $T > 0$ is the smallest number with this property
+
+#+begin_src gnuplot :exports results :file graphs/05.02.svg
+	set yrange [-5:5]
+	
+	plot [-2*pi:2*pi] sin(x), cos(x)
+#+end_src
+
+$\cos$ is an even function, meaning that $\cos(x) = \cos(-x)$
+$\sin$ is an odd function, meaning that $\sin(x) = -\sin(x)$
+$\sin^2(x) + \cos^2(x) = 1$
+
+$\sin(x+y) = \sin(x)\cos(y) + \cos(x)\sin(y)$
+$\cos(x+y) = \cos(x)\cos(y) - \sin(x)\sin(y)$
+
+$$
+f = \sin(x)\\
+Im(f) = [-1, 1]\\
+$$
+$$
+f = \cos(x)\\
+Im(f) = [-1, 1]\\
+$$
+$$
+f = \tan(x) = \frac{\sin(x)}{\cos(x)}\\
+f: \mathbb - \{\frac{\pi}{2}+k\pi, k \in \mathbb{Z}\} \rightarrow \mathbb{R}\\
+$$
+#+begin_src gnuplot :exports results :file graphs/05.03.svg
+	plot [-5:5] tan(x)
+#+end_src
+$\tan$ is periodic too: $\tan(x+\pi) = \tan(x) \forall x \in dom(\tan)$
+
+** Injectivity and Surjectivity
+They can't be injective because they're periodic, meaning that the same image has multiple pre-images, while they're surjective if we restrict the Image set to $[-1, 1]$.
+
+If we restrict $\sin: [-\frac{\pi}{2}, \frac{\pi}{2}] \rightarrow [-1, 1]$ then it's injective and we can define an inverse function
+such function is defined as $\arcsin(x) = \sin^{-1}(x)$, $\arcsin: [-1, 1] \rightarrow [-\frac{\pi}{2}, \frac{\pi}{2}]$
+#+begin_src gnuplot :exports results :file graphs/05.04.svg
+	plot [-pi/2:pi/2] sin(x), asin(x)
+#+end_src
+In $[-\frac{\pi}{2}, \frac{\pi}{2}]$, $\sin$ is Strictly Increasing, while $\arcsin$ is Strictly Increasing in $[-1, 1]$
+
+If we restrict $\cos: [0, \pi] \rightarrow [-1, 1]$ then it's injective and we can define an inverse function
+such function is defined as $\arccos(x) = \cos^{-1}(x)$, $\arccos: [-1, 1] \rightarrow [0, \pi]$
+$\cos$ is strictly decreasing in $[0, \pi]$ while $\arccos$ is strictly decreasing in $[-1, 1]$
+
+If we restrict $\tan: (-\frac{\pi}{2}, \frac{\pi}{2}) \rightarrow \mathbb{R}$ then it's injective and we can define an inverse function
+such function is defined as $\arctan(x) = \tan^{-1}(x)$, $\arctan: \mathbb{R} \rightarrow (-\frac{\pi}{2}, \frac{\pi}{2})$
+#+begin_src gnuplot :exports results :file graphs/05.05.svg
+	plot [-5:5] tan(x), atan(x)
+#+end_src
+$\tan$ is strictly increasing in $(-\frac{\pi}{2}, \frac{\pi}{2})$ while $\arccos$ is strictly increasing in $\mathbb{R}$, but it doesn't grow to infinity because $\arctan$ is bounded (its image set is $(-\frac{\pi}{2}, \frac{\pi}{2})$)
+
+* Complex Numbers $\mathbb{C}$
+$x^2 = -1$ has no solution for $x \in \mathbb{R}$
+$i: i^2 = -1$, $i$ is the imaginary unit
+A complex number $z = a + ib$ where $a, b \in \mathbb{R}$
+
+$$
+\text{let } z = a+ib, w = c+id\\
+z + w = a+ib + c+id = a+c+i(b+d)\\
+z \cdot w = (a+ib) \cdot (c+id) = ac + aid + cib + i^2bd = ac + aid + cib - bd = ac - bd + i(ad+cb)\\
+$$
+$z + w$ and $z \cdot w$ are both complex numbers
+
+let $z = a + ib$
+$a = Re(z)$ is the Real Part, $b = Im(z)$ is the Imaginary part
+$$
+Re(z+w) = Re(z) + Re(w)\\
+Im(z+w) = Im(z) + Im(w)\\
+Re(z \cdot w) = Re(z)Re(w) - Im(z)Im(w)\\
+Im(z \cdot w) = Re(z)Im(w) + Im(z)Re(w)\\
+$$
+Since any $x$ can be written as $x + 0i$ then $\mathbb{R} \subset \mathbb{C}$
+$$
+-z = - a - ib\\
+z+(-z) = 0
+$$
+Complex numbers have opposites
+$$
+z-w = z+(-w)
+$$
+
+$$
+\forall z \in \mathbb{C}, z \neq 0 \exists z^{-1}: z \cdot z^{-1} = 1
+$$
+
+** Geometric Representation
+let $z = a + ib$
+\begin{cases}
+	x = a \\
+	y = b \\
+\end{cases}
+$x$ is the real axis while $y$ is the imaginary axis
+$z = a + ib = (a, b)$
+let $z = (a, b), w = (c, d)$, then $z + w = (a + c, b + d)$
+$|z|$ is the length of the $(Re(z), Im(z))$ vector, so $|z| = \sqrt{Re^2(z) + Im^2(z)} = \sqrt{a^2 + b^2}$
+
+** Triangle Inequalities
+$|z + w| \leq |z| + |w|$
+$|z + w| \geq ||z| + |w||$
+because the length of a triangle's side cannot be higher than the sum of or lower than the difference between the lenghts of the other two sides
+
+let $z = 3 + i, w = 1-2i$
+$z \cdot w = 3-6i+i-2i^2 = 3-6i+i+2 = 5-6i+i$
+$z^2 = (3 + i)^2 = 9 + i^2 + 6i = 8 + 6i$
+let $\bar{z} = 3 - i$
+$z \cdot \bar{z} = (3 + i)(3 - i) = 3^2 - i^2 = 9 + 1 = 10$
+$|z| = \sqrt{3^2 + 1^2} = \sqrt{9 + 1} = \sqrt{10}$
+
+$\bar{z}$ is $z$'s =conjugate=
+$\bar{z} = a - ib$, it is symmetric along the $x$ axis
+$z \cdot \bar{z} = a^2+b^2 = |z|^2$
+If $x \in \mathbb{R}: \bar{x} = x$
+
+$$
+\text{If } z \cdot z^{-1} = 1 \text{ with } z \neq 0 \text{ then}\\
+\Downarrow\\
+z \cdot z^{-1} = \frac{z \cdot \bar{z}}{a^2 + b^2}\\
+\Downarrow\\
+z^{-1} = \frac{z \cdot \bar{z}}{z(a^2 + b^2)}\\
+\Downarrow\\
+z^{-1} = \frac{a}{a^2 + b^2}-i\frac{b}{a^2 + b^2}\\
+$$
+let $z = 3+i$, then $\bar{z} = 3-i$
+$z^{-1} = \frac{3}{10}-\frac{1}{10}i$
+
+** Polar Representation
+\begin{cases}
+a = \rho \cos(\theta)
+b = \rho \sin(\theta)
+\end{cases}
+where $\rho = \sqrt{a^2 + b^2}$ and $\theta$ is the angle between the vector and the $x$ axis
+
+*Euler's Formula*
+If $\theta \in \mathbb{R}$, then
+$\rho^{i \theta} = \cos(\theta) + i \sin(\theta)$
+=look online=
+
+Does $\rho^{i(x+y)} = \rho^{ix} \cdot \rho^{iy}$ where $x, y \in \mathbb{R}$ still hold?
+$$
+\rho^{i(x+y)} = \cos((x+y)) + i \sin((x+y))\\
+$$
+$$
+\rho^{ix} \cdot \rho^{iy} = (\cos(x) + i \sin(x)) \cdot (\cos(y) + i \sin(y))\\
+\Downarrow\\
+\rho^{ix} \cdot \rho^{iy} = \cos(x)\cos(y) + i\cos(x)\sin(y) + i \sin(x)\cos(y) + i^2\sin(x)\sin(y)\\
+\Downarrow\\
+\rho^{ix} \cdot \rho^{iy} = \cos(x)\cos(y) - \sin(x)\sin(y) + i (\cos(x)\sin(y) + \sin(x)\cos(y))\\
+\text{The real part is } \cos(x + y) \text{ and the imaginary part is } \sin(x+y)\\
+\Downarrow\\
+\rho^{ix} \cdot \rho^{iy} = \cos(x+y) + i \sin(x+y)\\
+\Downarrow\\
+\rho^{ix} \cdot \rho^{iy} = \rho^{i(x+y)}\\
+$$
+
+*** Exponential Representation
+$\rho e^{i\theta}$
+
+*Example*
+$z = 1 - i\sqrt{3}$ in Exponential representation
+$$
+\rho = \sqrt{1 + 3} = 2\\
+1 = 2 \cos(\theta)\\
+-\sqrt{3} = 2 \sin(\theta)\\
+\cos(\theta) = \frac{1}{2}\\
+\sin(\theta) = -\frac{\sqrt{3}}{2}\\
+\theta = -\frac{\pi}{3}
+$$
+$$
+\rho e^{i\theta} \Rightarrow 2 e^{-i\frac{\pi}{3}}
+$$
+This representation is useful if we want to multiply
+$$
+z_1 \cdot z_2 = \rho_1 \cdot \rho_2 e^{i(\theta_1 + \theta_2)}\\
+z^n = \rho^n e^{n\theta}\\
+$$
+
+How many n-th roots of 1?
+$z^n = 1$
+$$
+z^n = e^{n\theta} = 1\\
+\Downarrow\\
+e^{n\theta} = \cos(n\theta) + i \sin(n\theta)\\
+$$
+For $e^{n\theta}$ to be $1$ then
+\begin{cases}
+\sin(n\theta) = 0\\
+\cos(n\theta) = 1\\
+\end{cases}
+the solution of this system is $n\theta = k 2\pi, k \in \mathbb{Z}$
+$z^n = 1$ has $n$ solutions
+
+$x^2+1=0$ has no solutions in $\mathbb{R}$
+$x^2+1=0$ has two solutions in $\mathbb{C}$: $i$ and $-i$ ($i^2 = (-i)^2 = -1$)
+
+$P(x) = a_0+a_1 x+...+a_n x^n$ are there solutions of $P(x) = 0$ for $x$?
+ex: $ax^2+bx+c=0$
+in $\mathbb{R}$
+$x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}$ has 0 to 2 solutions based on $b^2-4ac$
+in $\mathbb{C}$
+$x = -\frac{b}{2a}\pm i \frac{\sqrt{b^2-4ac}}{2a}$
+
+For any polynomial equation $P(x) = 0$ there exist $n$ (taking their multiplicity into account) solutions in $\mathbb{C}$
+
+Multiplicity:
+There exist $x_1, ..., x_k$ $1 \leq k \leq n$ such that $P(x) = a_n(x-x_1)^{m_1} ... a_n(x-x_k)^{m_k}$ with $a_0, a_1, ..., a_n \in \mathbb{R}$
+
+If $x \in \mathbb{C}: P(x) = 0$ then also $\bar{x}: P(\bar{x}) = 0$

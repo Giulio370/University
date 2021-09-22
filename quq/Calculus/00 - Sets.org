@@ -60,7 +60,7 @@ The  additions ($a+b$) and multiplications ($a \cdot b$) (subtraction cannot be 
 
 _*Neutrals*_\\
 0 for Additions ($a+0=a$)
-1 for Multiplications ($a \cdot =a$)
+1 for Multiplications ($a \cdot 1 =a$)
 
 $\mathbb{N}_+ = \{1, 2, 3, 4, ...\}$
 
@@ -70,7 +70,7 @@ with $a,b \in \mathbb{Z}$
 The following operations are possible
 - additions ($a+b$),
 - multiplications ($a \cdot b$)
-- and subtractions ($a-b$/$a+(-b)$)
+- and subtractions (\(a-b\)/\(a+(-b)\))
 
 $\forall a \in \mathbb{Z} \exists b \in \mathbb{Z} \text{ such that } a+b=0 \land b=-a$
 
@@ -90,7 +90,7 @@ to represent numbers in a continuous line
 To prove that proposition $p$ implies proposition $q$ we prove that proposition $\lnot p$ implies both $q$ and $\lnot q$
 This is a contradiction, since $q$ and $\lnot q$ cannot both be true simultaneously (they're mutually exclusive)
 
-To prove that $p \notin \mathbb{Q} \text{ such that } p^2 = 2$ we prove that $p \in \mathbb{Q}: p^2 \neq 2$ is not true\\
+To prove that $p \notin \mathbb{Q} \text{ such that } p^2 = 2$ we prove that $p \in \mathbb{Q}: p^2 = 2$ is not true\\
 Suppose $p \in \mathbb{Q}$, so $p = \frac{m}{n}$ where $m, n$ have no common divisor
 $$
 \frac{m^2}{n^2} = 2 \Rightarrow m^2 = 2n^2\\
@@ -126,7 +126,7 @@ All numbers are ordered, if $a \neq b$ then $a < b \lor a > b$
 - if $c > 0 \land a < b \Rightarrow a \cdot c < b \cdot c$
 
 let \(A \subset \mathbb{R}\)\\
-\(max A = b \text{ such that } b \in A \land b >= a \forall a \in A\)\\
+\(max(A) = b \text{ such that } b \in A \land b >= a \forall a \in A\)\\
 if $A=\{x\in \mathbb{R}, x <= 1\}$ then $max(A) = 1$.\\
 Not all sets have a maximum (some sets are infinite), for example $B=\{x \in \mathbb{R}, x < 1\}$ has
 infinite numbers\\
@@ -144,6 +144,6 @@ $\exists M \in \mathbb{R} \text{ such that } M >= a \forall a \in A$) has a supr
 
 *** Theorem
 \[
-\forall n \in \mathbb{N}, \forall a > 0, a \in \mathbb{R} \ 
+\forall n \in \mathbb{N}, \forall a > 0, a \in \mathbb{R}:\\ 
 \exists \text{ unique } x \in \mathbb{R}, x > 0 \text{ such that } x^n=a
 \]

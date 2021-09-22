@@ -1,0 +1,159 @@
+#+title: Inverse Functions, Increasing/Decreasing/Monotone, Elementary Functions
+#+OPTIONS: toc:nil \n:t
+
+* Inverse Functions
+
+$$
+f: \mathbb{R} \rightarrow \mathbb{R}\\
+f: x \rightarrow x^2\\
+$$
+is NOT Injective because $f(x) = f(-x)$ (each element of the co-domain has one or more pre-images in the domain, $f^{-1}$ would not be a function) NOR surjective (because all the negative numbers don't have a pre-image in $\mathbb{R}$)
+We can restrict its domain in order to make it injective
+$$
+f: [0, \infty) \rightarrow [0, \infty)\\
+f: \mathbb{R}_+ \rightarrow \mathbb{R}_+\\
+$$
+
+If $f: A \rightarrow B$ is injective but not surjective, then
+$f^{-1}: Im(f) \rightarrow A$ where $Im(f)$ is the set of all the images of $f$
+$$
+f: A \rightarrow B\\
+Im(f) = \{y = f(x) \forall x \in A: y\}
+$$
+The graph of the Inverse function $f^{-1}$ is the reflection of the function $f$ along the $y=x$ axis
+Here, $f(x) = x^2$ restricted to $f: \mathbb{R}_+ \rightarrow \mathbb{R}_+$ and $f^{-1}(x) = \sqrt{x}$
+#+begin_src gnuplot :exports results :file graphs/04.01.svg
+	reset
+	set samples 50
+	set xzeroaxis
+	set yzeroaxis
+	
+	plot [0:2] x**2, sqrt(x), x
+#+end_src
+
+* Increasing/Decreasing/Monotone
+let $f: A \rightarrow B$
+We show that $f(x)=y$ has a unique solution $\forall y \in Im(f) \subset B$
+- *Graphically*: $y=c \forall c \in \mathbb{R}$ intersects with $f(x) \forall x \in A$ at most once
+- *Algebrically*: $f: A \subset \mathbb{R} \rightarrow \mathbb{R}$ with $f$ increasing in $I$
+	$$
+	\text{if }x,y \in I, x < y\\
+	\Downarrow\\
+	f(x) \leq f(y) \quad \text{Increasing / Non-Decreasing} \\
+	f(x) < f(y) \quad \text{Strictly Increasing} \\
+	$$
+	_Example_
+	$f: \mathbb{R} \rightarrow \mathbb{R}$
+	$f(x) = x^3$ is Strictly Increasing in $\mathbb{R}$
+	$f(x) = x^2$ is Strictly Increasing only in $\mathbb{R}_+$
+
+*** Floor function
+$$
+f(x) = [x]\\
+f(x) = max(\{n \in \mathbb{Z}: n \leq x\})\\
+f(2.56) = 2\\
+f(2) = 2\\
+f(-0.56) = -1\\
+$$
+#+begin_src gnuplot :exports results :file graphs/04.02.svg
+	plot [-5:5] floor(x)
+#+end_src
+$[x]$ is Increasing in $\mathbb{R}$, but not Strictly Increasing
+
+$$
+\text{if }x,y \in I, x < y\\
+\Downarrow\\
+f(y) \leq f(x) \quad \text{Decreasing / Non-Increasing} \\
+f(y) < f(x) \quad \text{Strictly Decreasing} \\
+$$
+
+$f$ is [Strictly] Monotone in $I$ if it's either [Strictly] Increasing or [Strictly] Decreasing
+If $f: I \subset \mathbb{R} \rightarrow \mathbb{R}$ is Strictly Monotone in $I$ then it's Injective in $I$
+If $x,y \in I, x \neq y$ then $x < y: f(x) < f(y) \lor f(y) < f(x)$ but $f(x) \neq f(y)$
+
+\begin{equation} 
+\text{let }f =
+	\begin{cases}
+		\frac{1}{x} & x \neq 0\\
+		0 & x = 0\\
+	\end{cases}
+\end{equation} 
+$f$ is 1-to-1 but it's not monotone
+
+* Elementary Functions
+$f: I \subset \mathbb{R} \rightarrow \mathbb{R}$ is even if $f(x) = f(-x) \forall X$
+while $f: I \subset \mathbb{R} \rightarrow \mathbb{R}$ is odd if $f(x) = -f(x) \forall X$
+
+** Power Functions
+$f(x) = x^n, n \in \mathbb{N}$ with $n = 0, f(x) = 1$
+if $n$ is even, $x^n = (-x)^n$ and $f$ is increasing in $\mathbb{R}_+$
+if $n$ is odd, $(-x)^n = -(x^n)$ and $f$ is increasing in $\mathbb{R}$
+#+begin_src gnuplot :exports results :file graphs/04.03.svg
+	plot [-5:5] x**1, x**2, x**3, x**4
+#+end_src
+If $0 < x < 1$ then $n > m: x^n < x^m$
+If $x \geq 1$ then $n > m: x^n > x^m$
+
+$f(x) = x^\alpha, \alpha \in \mathbb{R}$
+If $\alpha < 0$ then $x^\alpha=\frac{1}{x^{-\alpha}}$
+This is true because
+$$
+2^2 = 2 \cdot 2 = 4\\
+2^x = \frac{1}{2}\\
+$$
+If positive values lead to adding a factor, then negative values must remove them by dividing (the inverse of multiplying)
+$$
+2^{-1} = \frac{1}{2}
+$$
+If $\alpha = \frac{m}{n}$ then $x^{\frac{m}{n}}=\sqrt[n]{x^m}$
+This also leads to the preservation of properties such as
+$$
+a^n \cdot a^m = a^{n+m}\\
+a^n \cdot a^n = (a^n)^m\\
+$$
+- If $\alpha \in \mathbb{N}_+ f: \mathbb{R} \rightarrow \mathbb{R}$
+- If $\alpha \in \mathbb{Z}, a < 0 f: \mathbb{R}-\{0\} \rightarrow \mathbb{R}$
+- If $\alpha \in \mathbb{R} - \mathbb{Z}$
+	- $a > 0 f: [0, +\infty) \rightarrow \mathbb{R}$
+	- $a < 0 f: (0, +\infty) \rightarrow \mathbb{R}$
+
+** Exponential Functions
+$f(x) = a^x$ with $a > 1, x \in \mathbb{Q}$
+$f$ is Strictly Increasing in $\mathbb{Q}$, so if $x,y \in \mathbb{Q}, x < y: a^x < a^y$
+to define $f$ in $\mathbb{R}$ we have to use the rational approximations of the real numbers
+$$
+\text{let }\alpha \in \mathbb{R}\\
+A=\{x \in \mathbb{Q}, \forall x \leq \alpha: a^x\}\\
+a^\alpha = sup(A)
+$$
+$f(x) = a^x$ with $0 < a < 1, x \in \mathbb{Q}$
+$f$ is Strictly Decreasing in $\mathbb{Q}$
+
+$f(x) = a^x$ with $a > 0$: $(-\infty, +\infty) \rightarrow (0, +\infty)$
+If $a = 1$ then $f(x)$ is a constant
+#+begin_src gnuplot :exports results :file graphs/04.04.svg
+	plot [-3:3] 2**x, (0.5)**x, 1**x
+#+end_src
+If it's not defined, $a = e$
+#+begin_src gnuplot :exports results :file graphs/04.05.svg
+	plot [-3:3] e**x
+#+end_src
+Exponential functions are strictly monotonic and therefore injective, they're also surjective in $(0, +\infty)$, so
+$f^{-1}: (0, +\infty) \rightarrow \mathbb{R}$
+$f^{-1} = $
+
+** Logarithmic Functions
+$\log_{a}(y_1 + y_2) = \log_{a}(y_1) \cdot \log_{a}(y_2)$
+If $a$ is not defined, then $a = e$ ($\ln$ can also be used)
+$a^x = e^{x \cdot \ln(a)} = e^{\ln(a^x)} = a^x$
+
+** Polynomial Functions
+$f(x) = a_0 + a_1x + ... + a_n x^n$
+*** Polynomial Interpolation
+Given $n+1$ points $\{(x_0, y_0), ..., (x_n, y_n)\}$ 
+there is an unique polynomial $P(x)$ of degree $\leq n$ such that $i = 0 .. n: P(x_i)=y_i$
+
+** Rational Functions
+$f(x) = \frac{P(x)}{Q(x)}$ where $P, Q$ are Polynomial functions
+Ratio of two polynomial functions
+

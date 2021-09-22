@@ -1,0 +1,113 @@
+#+title: Line Equations, Tridimensional Space
+#+options: toc:nil \n:t
+$$
+| v \cdot w | &= | ||v|| \cdot ||w|| \cdot \cos(\alpha)|\\
+&=||v|| \cdot ||w|| \cdot |\cos(\alpha)|\\
+| v \cdot w | &\leq ||v|| \cdot ||w||
+$$
+Cauchy - Schwartz Inequality
+
+$v$ and $w$ are orthogonal if and only if $v \cdot w = 0$, which means that $\alpha = \pm \frac{\pi}{2}$ because $\cos(\frac{\pi}{2}) = 0$
+
+Equation of line in $\mathbb(R)^2$ passing through $O = (0, 0)$: $ax+by = 0 \Rightarrow (a, b)\cdot(x,y) = 0$
+$$
+x+y = 0\\
+\Downarrow\\
+(1, 1) \cdot (x, y)
+$$
+$t(1, 1)$ and $t(x, y)$ are orthogonal
+
+- *Implicit/Cartesian Equations*: $ax+by = 0$
+- *Parametric Equations*: \begin{cases}x = 0 - bt\\y = 0 + at\end{cases}
+	$(a, b)$ and $(-b, a)$ are orthogonal:
+	$$
+	(a, b) \cdot (-b, a) = -ab + ab = 0
+	$$
+
+*Problem*: Given a Line $l$ in $\mathbb{R}^2$ and a point $P$ which is not on the line, find a line $r$ through $P=(p_1, p_2)$ that is orthogonal to $l$
+Suppose the line $l$ is defined by $ax+by = c$ with $a \neq 0 \lor b \neq 0$, the vector $(a, b)$ is orthogonal to $l$
+\begin{equation}
+r =
+\begin{cases}
+x = p_1 + ta\\
+y = p_2 + tb\\
+\end{cases}
+\end{equation} (Since $(a, b)$ would be orthogonal, we put the parameter $t$ before it and add $P$ as an offset)
+Since we're adding $P$, $r$ does not go through $O$
+
+*Exercise*: Find a Cartesian Equation for a line $r$ which goes through $P=(1, 2)$ and is orthogonal to $l$ given as \begin{cases}x = 1 + 3t\\y = 1 + 5t\end{cases}
+1) Find the cartesian equation of $l$: $5x - 3y = 5(1 + 3t) -3(1 + 5t) = 5 + 15t - 3 - 15t = 5 - 3 = 2 \Rightarrow 5x - 3y = 2$
+2) \begin{equation}
+   r =
+   \begin{cases}
+     x = 1 + 5t\\
+     y = 1 - 3t\\
+   \end{cases}
+	 \end{equation}
+3) $-3x - 5y = (-3)(1 + 5t) - 5(1 - 3t) = -3 -15t -5 +15t = -3-5 = -8 \Rightarrow -3x-5y = -8 \Rightarrow 3x+5y = 8$
+
+The orthogonal projection $Q$ of $P$ on $l: 5x - 3y = 2$
+1) We already know that $r: 3x+5y = 13$ is orthogonal to $l$
+2) \begin{equation}
+	 \begin{cases}
+     l: 5x-3y = 2\\
+     r: 3x+5y = 13\\
+   \end{cases} \Rightarrow
+	 \begin{cases}
+     l: 5x-3y = 2\\
+     r: 5x+\frac{25}{3}y = \frac{65}{3}\\
+   \end{cases} \Rightarrow
+	 \begin{cases}
+     l: 5x-3y = 2\\
+     r: 5x+\frac{34}{3}y = \frac{59}{3}\\
+   \end{cases} \Rightarrow
+   \begin{equation}
+
+*Exercise* Given $P, Q \in \mathbb{R}^2 \land P \neq Q$, find the line throguh $P$ and $Q$
+Consider the applied vector $\vec{PQ}$
+Consider the vector $Q - P = (q_1, q_2) - (p_1, p_2) = (q_1-p_1, q_2-p_2)$
+Since $O,P,Q,Q-P$ is a parallelogram, $Q-P$ is perpendicular to $\vec{P+Q}$
+The line will then be given by
+\begin{cases}
+	x = p_1 + t(q_1 - p_1)\\
+	y = p_2 + t(q_2 - p_2)\\
+\end{cases}
+
+Alternatively
+We know that $P$ and $Q$ solve $ax+by=c \Rightarrow ax+by-c=0$
+\begin{equation}
+\begin{cases}
+ap_1+bp_2-c = 0\\
+aq_1+bq_2-c = 0\\
+\end{cases}
+\end{equation}
+
+* The space $\mathbb{R}^3$
+$(x,y,z)$, where $x, y, z \in \mathbb{R}$, is a point in $\mathbb{R}^3$
+$ax+by+cz=d$ describes a plane in the space if $a \neq 0 \lor b \neq 0 \lor c \neq 0$
+If $a, b, c = 0$ then
+- $ax+by+cz=d$ has no solutions if $d \neq 0$
+- $ax+by+cz=d$ any $x, y, z$, all the space is a solution if $d = 0$
+
+$ax+by+cz=d$ is a cartesian equation for a plane in $\mathbb{R}^3$
+$(x_0, y_0, z_0) + t(p_1, p_2, p_3)$ with $(p_1, p_2, p_3) \neq (0, 0, 0)$ is a parametric equation for a plane in $\mathbb{R}^3$
+\begin{cases}
+x = x_0 + tp_1\\
+y = y_0 + tp_2\\
+z = z_0 + tp_3\\
+\end{cases}
+
+*Cartesian $\rightarrow$ Parametric*
+$ax+by+cz = d$ where $(a,b,c) \neq (0,0,0)$
+Suppose $a \neq 0$
+1) First we find $(x_0, y_0, z_0)$ that satisfies $ax+by+cz = d$, ex: $y = z = 0$ and solve $ax=d$ for $x$
+2) $(ax+by+cz-d)-(ax_0+by_0+cz_0-d)=0 \Rightarrow a(x-x_0)+b(y-y_0)+c(z-z_0)=0$
+3) $t = \frac{z - z_0}{a}, s = \frac{y - y_0}{a}$
+4) $a(x-x_0)+b(y-y_0)+c(z-z_0)=0 \Rightarrow a(x-x_0)+bsa+cta=0 \Rightarrow a(x-x_0)=-bsa-cta \Rightarrow x-x_0=-\frac{bsa}{a}-\frac{cta}{a} \Rightarrow x=x_0-bs-ct$
+5) \begin{cases}
+   x=x_0 - bs - ct\\
+   y = y_0 + sa\\
+   z = z_0 + ta\\
+   \end{cases}
+6) (x,y,z) = (x_0, y_0, z_0) + s(b, a, 0) + t(c, 0, a)
+   
